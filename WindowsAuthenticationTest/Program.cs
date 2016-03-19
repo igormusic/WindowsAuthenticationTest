@@ -21,7 +21,12 @@ namespace rbc.mt.WindowsAuthentication.Test
                 new Uri("https://localhost:44350/token"),
                 handler);
 
-            var result = oauthClient.RequestCustomGrantAsync("windows").Result;
+            var result = oauthClient.RequestCustomGrantAsync("windows").Result as TokenResponse;
+
+            var accessToken = result.AccessToken;
+            Console.WriteLine("Access Token:{0}",accessToken);
+            Console.ReadLine();
+
         }
     }
 }
